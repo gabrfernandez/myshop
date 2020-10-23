@@ -1,12 +1,10 @@
 const express = require('express') //common js
 const dotenv = require('dotenv')
 const colors = require('colors')
-const products = require("./data/products")
+// const products = require("./data/products") no longer using products.js file
 const connectDB = require('./config/db')
 
-// import express from 'express' es module
-// import dotenv from 'dotenv'
-// import products from './data/products.js'
+const productRoutes = require('./routes/productRoutes')
 
 dotenv.config()
 
@@ -18,14 +16,8 @@ app.get('/', (req, res) => {
     res.send('API is running')
 })
 
-app.get('/api/products', (req, res) => {
-    res.json(products)
-})
+app.use('/api/products', productRoutes)
 
-app.get('/api/products/:id', (req, res) => {
-    const product = products.find(p => p._id === req.params.id)
-    res.json(products)
-})
 
 const PORT = process.env.PORT || 5000
 
