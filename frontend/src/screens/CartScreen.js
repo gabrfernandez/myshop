@@ -6,13 +6,13 @@ import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CartScreen = ({ match, location, history }) => {
-    const productId = match.params.div
+    const productId = match.params.id
 
     const qty = location.search ? Number(location.search.split('=')[1]) : 1
 
     const dispatch = useDispatch()
 
-    const cart = useSelector(state => state.cart)
+    const cart = useSelector((state) => state.cart)
     const { cartItems } = cart
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const CartScreen = ({ match, location, history }) => {
                 <h1>Shopping Cart</h1>
                 {cartItems.length === 0 ? <Message>Your Cart is empty <Link to="/">Go Back</Link></Message> : (
                     <ListGroup variant='flush'>
-                        {cartItems.map(item => (
+                        {cartItems.map((item) => (
                             <ListGroup.Item key={item.product}>
                                 <Row>
                                     <Col md={2}>
@@ -58,7 +58,7 @@ const CartScreen = ({ match, location, history }) => {
                                     </Col>
                                     <Col md={2}>
                                         <Button type='button' variant='light' onClick={() => removeFromCartHandler(item.product)}>
-                                            <i classNAme="fas fa-trash"></i>
+                                            <i className="fas fa-trash"></i>
                                         </Button>
                                     </Col>
                                 </Row>
