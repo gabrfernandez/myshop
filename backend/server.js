@@ -2,11 +2,13 @@ const express = require('express') //common js
 const dotenv = require('dotenv')
 const colors = require('colors')
 // const products = require("./data/products") no longer using products.js file
+const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
 
 const productRoutes = require('./routes/productRoutes')
 const userRoutes = require('./routes/userRoutes')
-const { notFound, errorHandler } = require('./middleware/errorMiddleware')
+const orderRoutes = require('./routes/orderRoutes')
+
 
 dotenv.config()
 
@@ -22,6 +24,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
 
 app.use(notFound)
 app.use(errorHandler)
