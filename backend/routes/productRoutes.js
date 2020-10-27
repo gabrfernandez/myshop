@@ -4,7 +4,7 @@ const productCtrl = require('../controllers/productController')
 const { protect, admin } = require('../middleware/authMiddleware')
 
 
-router.route('/').get(productCtrl.getProducts)
-router.route('/:id').get(productCtrl.getProductById).delete(protect, admin, productCtrl.deleteProduct)
+router.route('/').get(productCtrl.getProducts).post(protect, admin, productCtrl.createProduct)
+router.route('/:id').get(productCtrl.getProductById).delete(protect, admin, productCtrl.deleteProduct).put(protect, admin, productCtrl.updateProduct)
 
 module.exports = router
