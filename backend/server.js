@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express') //common js
 const dotenv = require('dotenv')
 const colors = require('colors')
+const morgan = require('morgan')
 // const products = require("./data/products") no longer using products.js file
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
@@ -17,7 +18,11 @@ dotenv.config()
 connectDB()
 
 const app = express()
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'))
+}
 app.use(express.json())
+
 
 
 app.get('/', (req, res) => {
