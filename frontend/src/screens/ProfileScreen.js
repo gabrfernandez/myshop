@@ -6,7 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderActions'
-import { USER_PROFILE_UPDATE_RESET } from '../constants/userConstants'
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 
 const ProfileScreen = ({ location, history }) => {

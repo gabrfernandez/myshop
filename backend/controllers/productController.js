@@ -1,4 +1,3 @@
-const { privateEncrypt } = require('crypto')
 const asyncHandler = require('express-async-handler')
 const Product = require('../models/productModel')
 
@@ -7,7 +6,7 @@ const Product = require('../models/productModel')
 //@route GET /api/products
 //@access Public
 const getProducts = asyncHandler(async (req, res) => {
-    const pageSize = 3
+    const pageSize = 4
     const page = Number(req.query.pageNumber) || 1
     const keyword = req.query.keyword ? {
         name: {
@@ -108,7 +107,7 @@ const createProductReview = asyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id)
 
     if (product) {
-        const alreadyReviewed = product.reviews.find(r => r.user.toString() === req.user._id.toString())
+        const alreadyReviewed = product.reviews.find((r) => r.user.toString() === req.user._id.toString())
 
         if (alreadyReviewed) {
             res.status(400)
