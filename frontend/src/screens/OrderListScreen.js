@@ -23,7 +23,7 @@ const OrderListScreen = ({ history }) => {
         } else {
             history.push('/login')
         }
-    }, [dispatch, history, , userInfo])
+    }, [dispatch, history, userInfo])
 
 
     return (

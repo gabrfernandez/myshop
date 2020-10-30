@@ -14,17 +14,17 @@ const ProductListScreen = ({ history, match }) => {
 
     const dispatch = useDispatch()
 
-    const productList = useSelector(state => state.productList)
+    const productList = useSelector((state) => state.productList)
     const { loading, error, products, page, pages } = productList
 
-    const productDelete = useSelector(state => state.productDelete)
+    const productDelete = useSelector((state) => state.productDelete)
     const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
 
-    const productCreate = useSelector(state => state.productCreate)
+    const productCreate = useSelector((state) => state.productCreate)
     const { loading: loadingCreate, error: errorCreate, success: successCreate, product: createdProduct } = productCreate
 
 
-    const userLogin = useSelector(state => state.userLogin)
+    const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
 
@@ -37,7 +37,7 @@ const ProductListScreen = ({ history, match }) => {
         }
 
         if (successCreate) {
-            history.push(`/admin/product/:${createdProduct._id}/edit`)
+            history.push(`/admin/product/${createdProduct._id}/edit`)
         } else {
             dispatch(listProducts('', pageNumber))
         }
@@ -60,7 +60,7 @@ const ProductListScreen = ({ history, match }) => {
                 </Col>
                 <Col className="text-right">
                     <Button className="my-3" onClick={createProductHandler}>
-                        <i className='fas fa-plus'></i>
+                        <i className='fas fa-plus'></i> Create Product
                     </Button>
                 </Col>
             </Row>
