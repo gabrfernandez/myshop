@@ -10,10 +10,10 @@ import { listOrders } from '../actions/orderActions'
 const OrderListScreen = ({ history }) => {
     const dispatch = useDispatch()
 
-    const orderList = useSelector(state => state.orderList)
+    const orderList = useSelector((state) => state.orderList)
     const { loading, error, orders } = orderList
 
-    const userLogin = useSelector(state => state.userLogin)
+    const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
 
@@ -44,7 +44,7 @@ const OrderListScreen = ({ history }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {orders.map(order => (
+                            {orders.map((order) => (
                                 <tr key={order._id}>
                                     <td>{order._id}</td>
                                     <td>{order.user && order.user.name}</td>

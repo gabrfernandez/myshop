@@ -10,7 +10,7 @@ const ProductCarousel = () => {
 
     const dispatch = useDispatch()
 
-    const productTopRated = useSelector(state => state.productTopRated)
+    const productTopRated = useSelector((state) => state.productTopRated)
     const { loading, error, products } = productTopRated
 
     useEffect(() => {

@@ -59,7 +59,7 @@ const OrderScreen = ({ match, history }) => {
             document.body.appendChild(script)
         }
 
-        if (!order || successPay || successDeliver) {
+        if (!order || successPay || successDeliver || order._id !== orderId) {
             dispatch({ type: ORDER_PAY_RESET })
             dispatch({ type: ORDER_DELIVER_RESET })
             dispatch(getOrderDetails(orderId))
@@ -70,7 +70,7 @@ const OrderScreen = ({ match, history }) => {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, orderId, successPay, order, successDeliver, history, userInfo])
+    }, [dispatch, orderId, successPay, successDeliver, order, history, userInfo])
 
     const successPaymentHandler = (paymentResult) => {
         console.log(paymentResult)

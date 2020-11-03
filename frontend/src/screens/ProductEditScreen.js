@@ -80,6 +80,7 @@ const ProductEditScreen = ({ match, history }) => {
             _id: productId,
             name,
             price,
+            image,
             brand,
             category,
             description,
