@@ -5,6 +5,8 @@
 -Both Customer and Admin usage
 -Customers can review and rate products
 
+<p>project not deployed. In the root, type "npm run dev"
+
 Home Screen
 ![](uploads/homescreen.png)
 Product Screen
